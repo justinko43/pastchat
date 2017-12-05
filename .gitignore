@@ -1,3 +1,14 @@
+build
+package-lock.json
 node_modules
 .DS_Store
-build
+.DS_Store?
+ehthumbs.db
+Thumbs.db
+logs
+*.log
+npm-debug.log*
+dist
+.npm
+.eslintcache
+.node_repl_history
