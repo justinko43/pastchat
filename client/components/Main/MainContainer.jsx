@@ -7,11 +7,11 @@ import Summary from './Summary';
 class MainContainer extends Component {
     render() {
         return (
-            <div>
-                <div>
+            <div id='main-container'>
+                <div className='margin-top-xl'>
                     <Video/>
                 </div>
-                <div>
+                <div className='text-gr3'>
                     <Summary/>
                 </div>
             </div> 
