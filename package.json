@@ -2,8 +2,9 @@
   "name": "pastchat",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./server/server.js",
   "scripts": {
+    "start": "node ./server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/teamdiamond1/pastchat/issues"
   },
-  "homepage": "https://github.com/teamdiamond1/pastchat#readme"
+  "homepage": "https://github.com/teamdiamond1/pastchat#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "colors": "^1.1.2"
+  }
 }
