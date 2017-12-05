@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import MessageBox from './MessageBox';
 import MessageInput from './MessageInput';
 
-class Chat extends Component {
+class ChatContainer extends Component {
     render() {
         return (
             <div>
@@ -18,4 +18,4 @@ class Chat extends Component {
     }
 }
 
-export default Chat;
+export default ChatContainer;

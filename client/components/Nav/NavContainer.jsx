@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 
 
-class Nav extends Component {
+class NavContainer extends Component {
     render() {
         return (
             <div>
@@ -16,4 +16,4 @@ class Nav extends Component {
     }
 }
 
-export default Nav;
+export default NavContainer;

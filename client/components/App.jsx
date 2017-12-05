@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import Nav from './Nav.jsx';
-import Recent from './Recent.jsx';
-import Main from './Main.jsx';
-import Chat from './Chat.jsx';
+import NavContainer from './Nav/NavContainer';
+import RecentContainer from './Recent/RecentContainer';
+import MainContainer from './Main/MainContainer';
+import ChatContainer from './Chat/ChatContainer';
 
 class App extends Component {
     constructor(props) {
         super(props);
     }
-
     render() {
         return (
             <div>
                 <div id="nav">
-                    <Nav/>
+                    <NavContainer/>
                 </div>
                 <div id="">
                     <div id="recent">
-                        <Recent/>
+                        <RecentContainer/>
                     </div>
                     <div id="main">
-                        <Main/>
+                        <MainContainer/>
                     </div>
                     <div id="chat">
-                        <Chat/>
+                        <ChatContainer/>
                     </div>
                 </div>
             </div> 

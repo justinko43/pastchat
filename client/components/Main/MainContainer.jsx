@@ -4,7 +4,7 @@ import Video from './Video';
 import Summary from './Summary';
 
 
-class Main extends Component {
+class MainContainer extends Component {
     render() {
         return (
             <div>
@@ -19,4 +19,4 @@ class Main extends Component {
     }
 }
 
-export default Main;
+export default MainContainer;
