@@ -12,7 +12,7 @@ const config = {
     rules: [
       {
         use: 'babel-loader',
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/
       },
       {
@@ -20,6 +20,9 @@ const config = {
         test: /\.css$/
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
   plugins: [
     new HtmlWebpackPlugin({
