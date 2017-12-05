@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 
 
-class Comments extends Component {
+class Comment extends Component {
     render() {
         return (
             <div>
@@ -12,4 +12,4 @@ class Comments extends Component {
     }
 }
 
-export default Comments;
+export default Comment;

@@ -1,4 +1,4 @@
-const keys = require('./keys.js');
+const keys = require('../../keys.js');
 const { Client } = require('pg');
 
 const db = new Client({

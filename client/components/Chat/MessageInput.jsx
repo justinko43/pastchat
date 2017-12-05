@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-class ChatBox extends Component {
+class MessageInput extends Component {
     render() {
         return (
             <div id="inputContainer">
@@ -14,4 +14,4 @@ class ChatBox extends Component {
     }
 }
 
-export default ChatBox;
+export default MessageInput;

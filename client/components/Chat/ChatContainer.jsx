@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import MessageBox from './MessageBox';
-import ChatBox from './ChatBox';
+import MessageInput from './MessageInput';
 
 class Chat extends Component {
     render() {
@@ -11,7 +11,7 @@ class Chat extends Component {
                     <MessageBox/>
                 </div>
                 <div>
-                    <ChatBox/>
+                    <MessageInput/>
                 </div>
             </div> 
         )

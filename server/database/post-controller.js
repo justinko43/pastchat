@@ -1,4 +1,4 @@
-const db = require('../postgres.js');
+const db = require('./postgres.js');
 
 db.connect(async () => {
   await db.query('INSERT INTO posts (columntest) values (\'test\')');

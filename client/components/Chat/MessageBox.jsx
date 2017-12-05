@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import Comments from './Comments';
+import Comment from './Comments';
 
 
 class MessageBox extends Component {
     render() {
         return (
             <div>
-                <Comments/>
+                <Comment/>
             </div> 
         )
     }
