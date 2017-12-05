@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import Comment from './Comments';
+import Comment from './Comment';
 
 
 class MessageBox extends Component {
