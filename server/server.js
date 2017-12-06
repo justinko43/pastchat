@@ -15,14 +15,17 @@ app.get('/comments/:videoId', postController.getComments, (req, res) => {
   res.send(res.locals.comments);
 });
 
-passport.serializeUser(function (user, cb) {
-  cb(null, user);
-  // return done(null, { firstName: 'Foo', lastName: 'Bar' });
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function (user, done) {
+  done(null, user.id);
 });
 
-passport.deserializeUser(function (obj, cb) {
-  cb(null, obj);
-  // return done(null, { firstName: 'Foo', lastName: 'Bar' });
+passport.deserializeUser(function (id, done) {
+  postController.getUser(id, user => {
+    done(null, user);
+  });
 });
 
 passport.use(new GoogleStrategy({
@@ -31,15 +34,14 @@ passport.use(new GoogleStrategy({
   callbackURL: configAuth.googleAuth.callbackURL
 },
   function (accessToken, refreshToken, profile, cb) {
-    console.log('accessToken:  ', accessToken);
-    console.log('refreshToken:  ', refreshToken);
-    console.log('profile:  ', profile);
-    console.log('cb:  ', cb);
-    User.findOrCreate({ googleId: profile.id }, function (err, user) {
+    postController.getUser(profile.id, user => {
       if (user) {
-        // postController.getUser()
+        cb(null, user);
+      } else {
+        postController.postUser(profile.id, profile.displayName, profile._json.image.url, user => {
+          cb(null, user);
+        });
       }
-      return cb(err, user);
     });
   }
 ));
