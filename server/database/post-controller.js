@@ -63,6 +63,7 @@ const controller = {
     if (!req.user) {
       res.send('You need to be logged in to do that');
     } else {
+      console.log(req.body);
       const userId = req.user.id;
       const comment = req.body.comment;
       const videoId = req.body.videoId;
