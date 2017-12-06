@@ -9,6 +9,7 @@ import * as actions from '../../actions/actions';
 const mapStateToProps = store => ({
     comments: store.chat.comments,
     url: store.chat.url,
+    time: store.video.time,
 });
 
 const mapDispatchToProps = dispatch => {
@@ -35,7 +36,16 @@ class ChatContainer extends Component {
         }
     }
 
+    handleArray(time, comments, array, index) {
+        if (comments[index].timestamp === time) {
+            array.push(comments[index++]);
+            if (array.length > 5) array.shift();
+        }
+        return array;
+    } 
+
     render() {
+        console.log(this.props);
         return (
             <div id='chat-container' className="bg-gr3">
                 <div id="message-container">

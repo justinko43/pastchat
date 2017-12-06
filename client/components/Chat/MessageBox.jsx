@@ -7,7 +7,7 @@ class MessageBox extends Component {
     render() {
         return (
             <div>
-                {this.props.comments.map((element, i) => {
+                {this.props.comments.sort((a, b) => a.timestamp - b.timestamp).map((element, i) => {
                     return (
                         <Comment 
                         comment={element.message}

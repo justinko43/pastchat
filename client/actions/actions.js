@@ -67,6 +67,11 @@ const setLink = (ytLink) => ({
     link: ytLink,
 });
 
+const setTime = (newTime) => ({
+    type: types.SET_TIME,
+    time: newTime,
+})
+
 
 
 module.exports = {
@@ -74,4 +79,5 @@ module.exports = {
     postComment,
     fetchVideo,
     setLink,
+    setTime,
 };
