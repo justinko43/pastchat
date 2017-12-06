@@ -47,16 +47,16 @@ class MainContainer extends Component {
         console.log()
         return (
             <div id = 'main-container'>
-                <div id = 'video-container'>
+                <div id = 'video-container' className="margin-top-xl">
                     {/* <Video url={this.props.url} rep={this.ref} /> */}
                     <YouTube id="hello" videoId={this.props.url} onPlay={this._onReady} playing />
                     {/* <ReactPlayer ref="player" url={`http://www.youtube.com/embed/${this.props.url}?enablejsapi=1&origin=http://example.com`} playing /> */}
                     <button onClick={this.getTime}> click</button>
-                </div>
-                <div id = 'summary-container'>
+                <div id="summary-container" className="margin-xl">
                     <Summary title={this.props.title} description={this.props.description} />
                 </div>
-            </div> 
+                </div>
+            </div>
         )
     }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import moment from 'moment';
 
 
 class Comment extends Component {
@@ -9,11 +10,17 @@ class Comment extends Component {
         return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
     }
     render() {
+        const timeStamp = moment(this.props.timestamp).format('h:mm a');
         return (
-            <div>
-                {this.props.name} {this.millisToMinutesAndSeconds(this.props.timestamp)} 
-                <br/> 
-                {this.props.comment}
+            <div className="user-comment margin">
+                <div>
+                    <img src={this.props.avatar}/>
+                </div>
+                <div>
+                    <span className="fw-600 margin-right-s">{this.props.name}</span>
+                    <span className="text-gr2 xsmall">{timeStamp}</span>
+                    <div>{this.props.comment}</div>
+                </div>
             </div> 
         )
     }

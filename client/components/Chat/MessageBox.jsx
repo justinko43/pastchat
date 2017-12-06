@@ -6,7 +6,7 @@ import Comment from './Comment';
 class MessageBox extends Component {
     render() {
         return (
-            <div>
+            <div id="message-box">
                 {this.props.comments.sort((a, b) => a.timestamp - b.timestamp).map((element, i) => {
                     return (
                         <Comment 
