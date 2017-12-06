@@ -6,7 +6,7 @@ class Summary extends Component {
     render() {
         return (
             <div>
-                <h3>Title</h3>
+                <p className="margin-0">Title</p>
                 <p>Descriptions...</p>
             </div> 
         )
