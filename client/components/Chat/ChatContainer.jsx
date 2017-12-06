@@ -36,20 +36,13 @@ class ChatContainer extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
-<<<<<<< HEAD
-            <div>
-                <div>
-                    <MessageBox comments={this.props.comments}/>
-=======
             <div id='chat-container' className="bg-gr3">
                 <div id="message-container">
-                    <MessageBox/>
->>>>>>> fda1f4cb6786e3a1ff0ef4ca68d6bbbc60dbc8f0
+                    <MessageBox comments={this.props.comments}/>
                 </div>
                 <div>
-                    <MessageInput postComment={}/>
+                    <MessageInput postComment={this.onSubmit}/>
                 </div>
             </div> 
         )

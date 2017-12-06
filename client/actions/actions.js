@@ -1,9 +1,22 @@
 import * as types from '../constants/actionTypes';
 import fetch from 'cross-fetch';
 
+const getVidInfo = (videoLink) => ({
+    type: types.GET_VIDINFO,
+    isFetching: true,
+});
+
+const receiveVidInfo = (videoLink, data) => ({
+    url: data.url,
+    type: types.RECEIVE_VIDINFO,
+    title: data.title,
+    description: data.thumbnail_url,
+    isFetching: false,
+});
+
 const getComments = (videoLink) => ({
     type: types.GET_COMMENTS,
-    videoLink
+    isFetching: true,
 });
 
 const receiveComments = (videoLink, comments) => ({
@@ -11,6 +24,7 @@ const receiveComments = (videoLink, comments) => ({
     link: videoLink,
     comments: comments,
     receivedAt: Date.now(),
+    isFetching: false,
 })
 
 const fetchComments = (fetchRoute) => {
@@ -19,6 +33,15 @@ const fetchComments = (fetchRoute) => {
         return fetch(`/comments/${fetchRoute}`)
             .then(response => response.json())
             .then(json => dispatch(receiveComments(fetchRoute, json)))
+    }
+}
+
+const fetchVideo = (videoLink) => {
+    return dispatch => {
+        dispatch(getVidInfo(videoLink));
+        return fetch(`https://noembed.com/embed?url=${videoLink}`)
+            .then(response => response.json())
+            .then(json => dispatch(receiveVidInfo(videoLink, json)))
     }
 }
 
@@ -39,6 +62,16 @@ const postComment = (fetchRoute, message) => {
     }).then(function(res) { return res.json()});
 };
 
+const setLink = (ytLink) => ({
+    type: types.SET_LINK,
+    link: ytLink,
+});
+
+
+
 module.exports = {
-    fetchComments
+    fetchComments,
+    postComment,
+    fetchVideo,
+    setLink,
 };
