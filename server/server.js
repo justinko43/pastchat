@@ -13,6 +13,10 @@ app.get('/comments/:videoId', postController.getComments, (req, res) => {
   res.send(res.locals.comments);
 });
 
+app.post('/comments', postController.postComment, (req, res) => {
+  res.send('Post successful');
+});
+
 if (env === 'development') {
   const webpack = require('webpack');
   const webpackDevMiddleware = require('webpack-dev-middleware');
