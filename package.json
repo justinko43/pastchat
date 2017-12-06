@@ -42,13 +42,10 @@
     "babel-polyfill": "^6.26.0",
     "cross-fetch": "^1.1.1",
     "express": "^4.16.2",
-<<<<<<< HEAD
     "nodemon": "^1.12.5",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
-=======
     "path": "^0.12.7",
->>>>>>> c0833c15cd260e027d851ffb5556e066f31867d2
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
