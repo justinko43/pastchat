@@ -1,8 +1,16 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import reducers from './reducers/index';
+import chatReducer from './reducers/chatReducer';
+import recentReducer from './reducers/recentReducer';
+import videoReducer from './reducers/videoReducer';
 import thunkMiddleware from 'redux-thunk';
 
-const store = createStore (reducers, applyMiddleware(composeWithDevTools, thunkMiddleware));
+const rootReducer = combineReducers({
+    chat: chatReducer,
+    recent: recentReducer,
+    video: videoReducer,
+})
+
+const store = createStore (rootReducer, applyMiddleware(composeWithDevTools, thunkMiddleware));
 
 export default store;
