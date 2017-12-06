@@ -19,6 +19,7 @@ const controller = {
       });
       res.locals.comments = finalArray;
       db.end();
+      next();
     });
   }
 }
