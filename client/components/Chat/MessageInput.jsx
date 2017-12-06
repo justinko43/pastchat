@@ -4,10 +4,10 @@ import { render } from 'react-dom';
 class MessageInput extends Component {
     render() {
         return (
-            <div id="input-container">
+            <div id="message-input">
                 <form>  
                     <input className="margin-m" type="text" component="input" placeholder="Message Here"/>
-                    <button component="input" type="submit"> submit </button>
+                    <button type="submit">submit</button>
                 </form>
             </div>
         )

@@ -37,13 +37,9 @@ class ChatContainer extends Component {
 
     render() {
         return (
-            <div id='chat-container' className="bg-gr3">
-                <div id="message-container">
-                    <MessageBox comments={this.props.comments}/>
-                </div>
-                <div>
-                    <MessageInput postComment={this.onSubmit}/>
-                </div>
+            <div id="chat-container" className="bg-white">
+                <MessageBox comments={this.props.comments}/>
+                <MessageInput postComment={this.onSubmit}/>
             </div> 
         )
     }
