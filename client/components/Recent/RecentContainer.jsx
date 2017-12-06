@@ -20,7 +20,7 @@ class Recent extends Component {
 
     render() {
         return (
-            <div id="recent-container" className="bg-gr3">
+            <div id="recent-container" className="bg-white">
                 <div className="fw-600 h4 margin-top margin-bottom text-center">Recent Videos</div>
                 { this.renderPlaceholders() }
             </div> 

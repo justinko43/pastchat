@@ -1,12 +1,51 @@
+@chat-border: 1px solid @gr3;
+
 #chat-container {
+    position: relative;
+    border-left: @chat-border;
+    border-right: @chat-border;
+
     #message-box {
-        .comment {
-            
+        overflow-y: scroll;
+        
+        .user-comment {
+            display: grid;
+            grid-template-columns: 30px 275px;
+            grid-gap: @space;
+            img {
+                width: 30px;
+                border-radius: 10%;
+            }
         }
     }
 
     #message-input {
-        
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        border-top: @chat-border;
+
+        form {
+            height: 50px;
+            
+            input {
+                border: none;
+                outline: none;
+                width: 80%;
+                height: 100%;
+                margin: 0;
+                padding: 0 @space;
+            }
+    
+            button {
+                border-radius: 0;
+                border: none;
+                border-left: @chat-border;
+                width: 20%;
+                height: 100%;
+            }
+        }
+
     }
 }
 

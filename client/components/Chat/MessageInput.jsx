@@ -7,7 +7,7 @@ class MessageInput extends Component {
             <div id="message-input">
                 <form>  
                     <input className="margin-m" type="text" component="input" placeholder="Message Here"/>
-                    <button component="input" type="submit"> submit </button>
+                    <button type="submit">submit</button>
                 </form>
             </div>
         )
