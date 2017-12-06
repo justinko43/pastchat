@@ -45,7 +45,7 @@ class NavContainer extends Component {
                     </form>
                 </div>
                 <div>
-                    <button id="oAuth-container">OAuth button</button>
+                    <a id="oAuth-container" href="/auth/google">Sign in with Google</a>
                 </div>
             </div>
         )
