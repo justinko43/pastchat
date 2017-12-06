@@ -13,3 +13,4 @@ dist
 .eslintcache
 .node_repl_history
 keys.js
+config

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "webpack",
-    "start": "node ./server/server.js",
+    "start": "nodemon ./server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -39,6 +39,9 @@
   },
   "dependencies": {
     "express": "^4.16.2",
+    "nodemon": "^1.12.5",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0",
     "path": "^0.12.7",
     "webpack-dev-middleware": "^1.12.2",
     "webpack-hot-middleware": "^2.21.0"
