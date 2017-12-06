@@ -13,9 +13,10 @@ const mapStateToProps = store => ({
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
-        postMessage: actions.postMessage,
-        getMessage: actions.getMessage,
-        receiveMessage: actions.receiveMessage,
+        // postMessage: actions.postMessage,
+        // getMessage: actions.getMessage,
+        postComment: actions.postComment,
+        fetchComments: actions.fetchComments,
     }, dispatch)
 }
 
@@ -23,15 +24,26 @@ class ChatContainer extends Component {
     constructor(props) {
         super(props);
     }
+    componentWillMount(){
+        this.props.fetchComments(`Q5Am4Xc1axA`);
+    }
+    onSubmit(event) {
+        event.preventDefault();
+        if (event.target.querySelector('input').value) {
+            this.props.postComment(event.target.querySelector('input').value);
+            event.target.reset();
+        }
+    }
+
     render() {
         console.log(this.props);
         return (
             <div>
                 <div>
-                    <MessageBox/>
+                    <MessageBox comments={this.props.comments}/>
                 </div>
                 <div>
-                    <MessageInput/>
+                    <MessageInput postComment={}/>
                 </div>
             </div> 
         )
