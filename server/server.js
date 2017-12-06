@@ -15,6 +15,10 @@ app.get('/comments/:videoId', postController.getComments, (req, res) => {
   res.send(res.locals.comments);
 });
 
+app.post('/comments', postController.postComment, (req, res) => {
+  res.send('Post successful');
+});
+
 app.use(passport.initialize());
 app.use(passport.session());
 
