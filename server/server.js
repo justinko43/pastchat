@@ -2,10 +2,16 @@ const express = require('express');
 const colors = require('colors');
 const path = require('path');
 
+const postController = require('./database/post-controller.js');
+
 const SERVER_PORT = process.env.SERVER_PORT || 3000;
 const env = process.env.NODE_ENV || 'development';
 
 const app = express();
+
+app.get('/comments/:videoId', postController.getComments, (req, res) => {
+  res.send(res.locals.comments);
+});
 
 if (env === 'development') {
   const webpack = require('webpack');
