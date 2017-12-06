@@ -13,7 +13,7 @@ class App extends Component {
         return (
             <div>
               <NavContainer/>
-              <div id="flex-container">
+              <div id="app-container">
                   <RecentContainer  />
                   <MainContainer />
                   <ChatContainer/>
