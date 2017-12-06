@@ -1,5 +1,0 @@
-#main-container {
-  div {
-    background-color: @gr0;
-  }
-}
