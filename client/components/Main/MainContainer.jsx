@@ -27,7 +27,12 @@ class MainContainer extends Component {
         this.props.fetchVideo(`https://www.youtube.com/watch?v=${this.props.url}`);
     }
 
+    componentDidUpdate(){
+        this.props.fetchVideo(`https://www.youtube.com/watch?v=${this.props.url}`);        
+    }
+
     render() {
+        console.log(this.props.url);
         return (
             <div id = 'main-container'>
                 <div id = 'video-container'>
