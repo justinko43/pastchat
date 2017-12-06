@@ -20,22 +20,19 @@ const mapDispatchToProps = dispatch => {
 class NavContainer extends Component {
     constructor(props) {
         super(props);
+        this.onSave = this.onSave.bind(this);
     }
 
     onSave(event) {
         event.preventDefault();
-        console.log(event.target.querySelector('input').value);
-        console.log(this.props);
-        // this.props.setLink(event.target.querySelector('input').value);
-        // if (event.target.querySelector('input').value) {
-        //     this.props.setLink(event.target.querySelector('input').value);
-        //     event.target.reset();
-        // }
+        this.props.setLink(event.target.querySelector('input').value);
+        if (event.target.querySelector('input').value) {
+            this.props.setLink(event.target.querySelector('input').value);
+            event.target.reset();
+        }
     }
 
     render() {
-        console.log('this');
-        console.log(this.props);        
         return (
             <div id="nav-container">
                 <div id="form-container">

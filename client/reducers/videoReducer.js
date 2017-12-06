@@ -21,7 +21,7 @@ const videoReducer = (state = initialState, action) => {
             });
         case types.SET_LINK:
             return Object.assign({}, state, {
-                url: action.url,
+                url: action.link,
             });
         default:
             return state;
