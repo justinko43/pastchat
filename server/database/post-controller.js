@@ -1,10 +1,13 @@
-const db = require('./postgres.js');
+const pool = require('./postgres.js');
 
 const controller = {
   getComments: async function(req, res, next) {
-    db.connect(async () => {
+    pool.connect(async (error, client, done) => {
       const videoId = req.params.videoId;
-      const results = await db.query(`SELECT (c.comment, c.timestamp, u.name, u.avatar) FROM comments c INNER JOIN users u ON (c.userid = u.userid) WHERE c.video_id = ('${videoId}');`);
+      console.log('1');
+      const results = await client.query(`SELECT (c.comment, c.timestamp, u.name, u.avatar) FROM comments c INNER JOIN users u ON (c.userid = u.userid) WHERE c.video_id = ('${videoId}');`);
+      done();
+      console.log('2');
       const finalArray = [];
       results.rows.forEach(row => {
         const commentObj = {};
@@ -18,7 +21,6 @@ const controller = {
         finalArray.push(commentObj);
       });
       res.locals.comments = finalArray;
-      db.end();
       next();
     });
   }
