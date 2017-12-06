@@ -12,20 +12,12 @@ class App extends Component {
     render() {
         return (
             <div>
-                <div id="nav">
-                    <NavContainer/>
-                </div>
-                <div id="">
-                    <div id="recent">
-                        <RecentContainer/>
-                    </div>
-                    <div id="main">
-                        <MainContainer/>
-                    </div>
-                    <div id="chat">
-                        <ChatContainer/>
-                    </div>
-                </div>
+              <NavContainer/>
+              <div id="flex-container">
+                  <RecentContainer  />
+                  <MainContainer />
+                  <ChatContainer/>
+            </div>
             </div> 
         )
     }
