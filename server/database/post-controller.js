@@ -58,6 +58,21 @@ const controller = {
         cb(void 0);
       }
     });
+  },
+  postComment: async function (req, res, next) {
+    if (!req.user) {
+      res.send('You need to be logged in to do that');
+    } else {
+      const userId = req.user.id;
+      const comment = req.body.comment;
+      const videoId = req.body.videoId;
+      const timestamp = req.body.timestamp;
+      pool.connect(async (error, client, done) => {
+        await client.query(`INSERT INTO comments (userid, comment, video_id, timestamp) VALUES ('${userId}', '${comment}', '${videoId}', '${timestamp}');`);
+        done();
+        next();
+      });
+    }
   }
 }
 
