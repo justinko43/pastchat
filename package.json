@@ -38,6 +38,12 @@
     "webpack-dev-server": "^2.9.5"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "babel-polyfill": "^6.26.0",
+    "cross-fetch": "^1.1.1",
+    "express": "^4.16.2",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-thunk": "^2.2.0"
   }
 }
