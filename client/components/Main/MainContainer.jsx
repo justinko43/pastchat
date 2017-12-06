@@ -28,7 +28,6 @@ class MainContainer extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <div id = 'main-container'>
                 <div id = 'video-container'>

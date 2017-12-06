@@ -24,11 +24,13 @@ class NavContainer extends Component {
 
     onSave(event) {
         event.preventDefault();
+        console.log(event.target.querySelector('input').value);
         console.log(this.props);
-        if (event.target.querySelector('input').value) {
-            this.props.setLink(event.target.querySelector('input').value);
-            event.target.reset();
-        }
+        // this.props.setLink(event.target.querySelector('input').value);
+        // if (event.target.querySelector('input').value) {
+        //     this.props.setLink(event.target.querySelector('input').value);
+        //     event.target.reset();
+        // }
     }
 
     render() {
@@ -43,7 +45,7 @@ class NavContainer extends Component {
                     </form>
                 </div>
                 <div>
-                    <button id="oAuth-container">OAuth button</button>
+                    <a id="oAuth-container" href="/auth/google">Sign in with Google</a>
                 </div>
             </div>
         )
