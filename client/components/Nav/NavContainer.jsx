@@ -36,7 +36,7 @@ class NavContainer extends Component {
         console.log(this.props);        
         return (
             <div id="nav-container">
-                <div id="form-container">
+                <div>
                     <form onSubmit={this.onSave}>
                         <input type="text" component="input" placeholder="URL HERE"/>
                         <input type="submit"/>
