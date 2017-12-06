@@ -6,7 +6,7 @@ import Comment from './Comment';
 class MessageBox extends Component {
     render() {
         return (
-            <div>
+            <div id="message-box">
                 {this.props.comments.map((element, i) => {
                     return (
                         <Comment 
