@@ -33,6 +33,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "redux-logger": "^3.0.6",
     "style-loader": "^0.19.0",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.5"
@@ -41,14 +42,16 @@
     "babel-polyfill": "^6.26.0",
     "cross-fetch": "^1.1.1",
     "express": "^4.16.2",
+<<<<<<< HEAD
     "nodemon": "^1.12.5",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
+=======
+    "path": "^0.12.7",
+>>>>>>> c0833c15cd260e027d851ffb5556e066f31867d2
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
-    "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",
-    "path": "^0.12.7",
     "webpack-dev-middleware": "^1.12.2",
     "webpack-hot-middleware": "^2.21.0"
   }
