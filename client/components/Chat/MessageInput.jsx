@@ -4,9 +4,9 @@ import { render } from 'react-dom';
 class MessageInput extends Component {
     render() {
         return (
-            <div id="inputContainer">
-                <form>
-                    <input type="text" component="input" placeholder="Message Here"/>
+            <div id="input-container">
+                <form>  
+                    <input className="margin-m" type="text" component="input" placeholder="Message Here"/>
                     <button component="input" type="submit"> submit </button>
                 </form>
             </div>

@@ -31,7 +31,14 @@ passport.use(new GoogleStrategy({
   callbackURL: configAuth.googleAuth.callbackURL
 },
   function (accessToken, refreshToken, profile, cb) {
+    console.log('accessToken:  ', accessToken);
+    console.log('refreshToken:  ', refreshToken);
+    console.log('profile:  ', profile);
+    console.log('cb:  ', cb);
     User.findOrCreate({ googleId: profile.id }, function (err, user) {
+      if (user) {
+        // postController.getUser()
+      }
       return cb(err, user);
     });
   }

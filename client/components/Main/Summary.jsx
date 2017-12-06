@@ -6,8 +6,8 @@ class Summary extends Component {
     render() {
         return (
             <div>
-                <h3>Title</h3>
-                <p>Descriptions...</p>
+                <p className="margin-0">{this.props.title}</p>
+                <p>{this.props.description}</p>
             </div> 
         )
     }

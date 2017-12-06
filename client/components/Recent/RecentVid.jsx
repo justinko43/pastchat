@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 class RecentVid extends Component {
     render() {
         return (
-            <div>
+            <div id="recent-thumbnail-container">
                 Thumbnail
             </div> 
         )
