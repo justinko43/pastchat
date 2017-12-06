@@ -6,8 +6,8 @@ import MessageInput from './MessageInput';
 class ChatContainer extends Component {
     render() {
         return (
-            <div>
-                <div>
+            <div id='chat-container' className="bg-gr3">
+                <div id="message-container">
                     <MessageBox/>
                 </div>
                 <div>

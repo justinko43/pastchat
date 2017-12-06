@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 class NavContainer extends Component {
     render() {
         return (
-            <div id="nav-container">
+           <div id="nav-container">
                 <div id="form-container">
                     <form>
                         <input type="text" component="input" placeholder="URL HERE"/>

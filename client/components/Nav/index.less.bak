@@ -1,4 +1,4 @@
-#nav-container{
+
     display: flex;
     //flex-wrap: wrap;
     width: 100%;
@@ -23,4 +23,3 @@
     margin-top: 0px;  
     margin-bottom: 0px;  
 }
-
