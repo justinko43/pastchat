@@ -6,7 +6,7 @@ const config = {
   entry: './client/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.[chunkhash].js'
+    filename: 'bundle.[hash].js'
   },
   module: {
     rules: [

@@ -6,8 +6,14 @@ class RecentVid extends Component {
     render() {
         return (
             <div>
-                Thumbnail
-            </div> 
+                <div className="recent-inner">
+                    <img src={this.props.src} className="recent-thumbnail"></img>
+                    <div className="title-container margin-bottom">
+                        <div className="h6 margin-right-m overflow-ellipses">{this.props.title}</div>
+                        <div className="fw-600 xsmall">{this.props.channel}</div>
+                    </div>
+                </div>
+            </div>
         )
     }
 }

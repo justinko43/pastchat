@@ -1,7 +1,7 @@
 const keys = require('../../keys.js');
-const { Client } = require('pg');
+const { Pool } = require('pg');
 
-const db = new Client({
+const pool = new Pool({
   user: keys.POSTGRES_USERNAME,
   host: keys.POSTGRES_URI,
   database: keys.POSTGRES_DBNAME,
@@ -9,4 +9,4 @@ const db = new Client({
   port: keys.POSTGRES_PORT
 })
 
-module.exports = db;
+module.exports = pool;
