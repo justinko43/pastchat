@@ -5,6 +5,7 @@ const initialState = {
     url: 'Q5Am4Xc1axA',
     title: 'first title',
     description: 'first description',
+    time: 0,
 }
 
 const videoReducer = (state = initialState, action) => {
@@ -23,6 +24,10 @@ const videoReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 url: action.link,
             });
+        case types.SET_TIME:
+            return Object.assign({}, state, {
+                time: Math.floor(action.time.playedSeconds) * 1000,
+            })
         default:
             return state;
     }

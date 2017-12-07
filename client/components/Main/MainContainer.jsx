@@ -3,8 +3,8 @@ import { bindActionCreators } from 'redux';
 import { render } from 'react-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
-import Video from './Video';
 import Summary from './Summary';
+import ReactPlayer from 'react-player';
 
 const mapStateToProps = store => ({
     url: store.video.url,
@@ -15,6 +15,7 @@ const mapStateToProps = store => ({
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
         fetchVideo: actions.fetchVideo,
+        setTime: actions.setTime,
     }, dispatch)
 }
 
@@ -31,18 +32,25 @@ class MainContainer extends Component {
         this.props.fetchVideo(`https://www.youtube.com/watch?v=${this.props.url}`);        
     }
 
-    render() {
+    _onReady(played, loaded) {
+
+        this.props.setTime(played);
+    }
+    
+    render() {    
         return (
-            <div id="main-container">
-                <div id="video-container" className="margin-top-xl">
-                    <Video url={this.props.url}/>
+            <div id = 'main-container'>
+                <div id = 'video-container' className="margin-top-xl">
+                    <ReactPlayer controls={true} url={`https://www.youtube.com/watch?v=${this.props.url}`} onProgress={this.props.setTime}/>
+                    <div id="summary-container" className="margin-xl">
+                        <Summary title={this.props.title} description={this.props.description} />
+                    </div>
                 </div>
-                <div id="summary-container" className="margin-xl">
-                    <Summary title={this.props.title} description={this.props.description} />
-                </div>
-            </div> 
+            </div>
         )
     }
+
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);

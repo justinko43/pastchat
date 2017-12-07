@@ -9,12 +9,11 @@ import * as actions from '../../actions/actions';
 const mapStateToProps = store => ({
     comments: store.chat.comments,
     url: store.video.url,
+    time: store.video.time,
 });
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
-        // postMessage: actions.postMessage,
-        // getMessage: actions.getMessage,
         fetchComments: actions.fetchComments,
     }, dispatch)
 }
@@ -23,7 +22,7 @@ class ChatContainer extends Component {
     constructor(props) {
         super(props);
     }
-    componentWillMount(){
+    componentDidMount(){
         this.props.fetchComments(this.props.url);
     }
     onSubmit(value) {
@@ -36,7 +35,7 @@ class ChatContainer extends Component {
             },
             body: JSON.stringify({
                 comment: value,
-                timestamp: 7777,
+                timestamp: this.props.time,
                 videoId: this.props.url
             }),
         }).then((res) => {
@@ -44,10 +43,18 @@ class ChatContainer extends Component {
         });
     }
 
+    handleArray(time, comments, array, index) {
+        if (comments[index].timestamp === time) {
+            array.push(comments[index++]);
+            if (array.length > 5) array.shift();
+        }
+        return array;
+    } 
+
     render() {
         return (
             <div id="chat-container" className="bg-white">
-                <MessageBox comments={this.props.comments}/>
+                <MessageBox comments={this.props.comments.filter((obj) => obj.timestamp <= this.props.time)}/>
                 <MessageInput postComment={this.onSubmit.bind(this)}/>
             </div> 
         )

@@ -27,7 +27,6 @@ const receiveComments = (videoLink, comments) => ({
 })
 
 const fetchComments = (fetchRoute) => {
-    console.log('actioncreator', fetchRoute);
     return dispatch => {
         dispatch(getComments(fetchRoute))
         return fetch(`/comments/${fetchRoute}`)
@@ -50,10 +49,16 @@ const setLink = (ytLink) => ({
     link: ytLink,
 });
 
+const setTime = (newTime) => ({
+    type: types.SET_TIME,
+    time: newTime,
+})
+
 
 
 module.exports = {
     fetchComments,
     fetchVideo,
     setLink,
+    setTime,
 };
