@@ -32,7 +32,6 @@ class MainContainer extends Component {
     }
 
     render() {
-        console.log(this.props.url);
         return (
             <div id="main-container">
                 <div id="video-container" className="margin-top-xl">

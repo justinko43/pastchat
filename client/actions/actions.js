@@ -21,13 +21,13 @@ const getComments = (videoLink) => ({
 
 const receiveComments = (videoLink, comments) => ({
     type: types.RECEIVE_COMMENTS,
-    link: videoLink,
     comments: comments,
     receivedAt: Date.now(),
     isFetching: false,
 })
 
 const fetchComments = (fetchRoute) => {
+    console.log('actioncreator', fetchRoute);
     return dispatch => {
         dispatch(getComments(fetchRoute))
         return fetch(`/comments/${fetchRoute}`)
@@ -45,23 +45,6 @@ const fetchVideo = (videoLink) => {
     }
 }
 
-const postComment = (fetchRoute, message) => {
-    fetch(`/post/${fetchRoute}`, {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            message: message,
-            timestamp: Date.now(),
-            //how to access person's name and avatar?
-            name: person.name,
-            name: person.avatar,
-        }),
-    }).then(function(res) { return res.json()});
-};
-
 const setLink = (ytLink) => ({
     type: types.SET_LINK,
     link: ytLink,
@@ -71,7 +54,6 @@ const setLink = (ytLink) => ({
 
 module.exports = {
     fetchComments,
-    postComment,
     fetchVideo,
     setLink,
 };

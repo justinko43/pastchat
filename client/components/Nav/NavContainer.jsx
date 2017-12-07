@@ -13,6 +13,7 @@ const mapStateToProps = store => ({
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
         setLink: actions.setLink,
+        fetchComments: actions.fetchComments
     }, dispatch)
 }
 
@@ -27,7 +28,9 @@ class NavContainer extends Component {
         event.preventDefault();
         this.props.setLink(event.target.querySelector('input').value);
         if (event.target.querySelector('input').value) {
-            this.props.setLink(event.target.querySelector('input').value);
+            const url = event.target.querySelector('input').value;
+            this.props.setLink(url);
+            this.props.fetchComments(url);
             event.target.reset();
         }
     }

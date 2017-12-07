@@ -8,14 +8,13 @@ import * as actions from '../../actions/actions';
 
 const mapStateToProps = store => ({
     comments: store.chat.comments,
-    url: store.chat.url,
+    url: store.video.url,
 });
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
         // postMessage: actions.postMessage,
         // getMessage: actions.getMessage,
-        postComment: actions.postComment,
         fetchComments: actions.fetchComments,
     }, dispatch)
 }
@@ -25,21 +24,31 @@ class ChatContainer extends Component {
         super(props);
     }
     componentWillMount(){
-        this.props.fetchComments(`Q5Am4Xc1axA`);
+        this.props.fetchComments(this.props.url);
     }
-    onSubmit(event) {
-        event.preventDefault();
-        if (event.target.querySelector('input').value) {
-            this.props.postComment(event.target.querySelector('input').value);
-            event.target.reset();
-        }
+    onSubmit(value) {
+        fetch(`/comments`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                comment: value,
+                timestamp: 7777,
+                videoId: this.props.url
+            }),
+        }).then((res) => {
+            this.props.fetchComments(this.props.url); 
+        });
     }
 
     render() {
         return (
             <div id="chat-container" className="bg-white">
                 <MessageBox comments={this.props.comments}/>
-                <MessageInput postComment={this.onSubmit}/>
+                <MessageInput postComment={this.onSubmit.bind(this)}/>
             </div> 
         )
     }
