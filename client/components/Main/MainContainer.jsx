@@ -33,11 +33,11 @@ class MainContainer extends Component {
 
     render() {
         return (
-            <div id = 'main-container'>
-                <div id = 'video-container'>
+            <div id="main-container">
+                <div id="video-container" className="margin-top-xl">
                     <Video url={this.props.url}/>
                 </div>
-                <div id = 'summary-container'>
+                <div id="summary-container" className="margin-xl">
                     <Summary title={this.props.title} description={this.props.description} />
                 </div>
             </div> 

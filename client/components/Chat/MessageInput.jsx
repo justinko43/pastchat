@@ -17,10 +17,10 @@ class MessageInput extends Component {
 
     render() {
         return (
-            <div id="input-container">
+            <div id="message-input">
                 <form>  
-                    <input onChange={(event) => this.setState({input: event.target.value})} value={this.state.input} className="margin-m" type="text" component="input" placeholder="Message Here"/>
-                    <button component="input" type="submit" onClick={this.handleSubmit.bind(this)}> submit </button>
+                    <input onChange={(event) => this.setState({input: event.target.value})} value={this.state.input} className="margin-m" type="text" placeholder="Message Here"/>
+                    <button type="submit" onClick={this.handleSubmit.bind(this)}>submit</button>
                 </form>
             </div>
         )
