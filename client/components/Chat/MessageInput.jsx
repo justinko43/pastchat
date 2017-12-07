@@ -15,13 +15,23 @@ class MessageInput extends Component {
         this.setState({ input: '' });
     }
 
+    renderInput() {
+        if (this.props.user.name) {
+            return (
+                <form>
+                    <input onChange={(event) => this.setState({ input: event.target.value })} value={this.state.input} className="margin-m" type="text" placeholder="Message Here" />
+                    <button type="submit" onClick={this.handleSubmit.bind(this)}>submit</button>
+                </form>
+            );
+        } else {
+            return <div id="login-error"><strong>You must be logged in to comment.</strong></div>;
+        }
+    }
+
     render() {
         return (
             <div id="message-input">
-                <form>  
-                    <input onChange={(event) => this.setState({input: event.target.value})} value={this.state.input} className="margin-m" type="text" placeholder="Message Here"/>
-                    <button type="submit" onClick={this.handleSubmit.bind(this)}>submit</button>
-                </form>
+                {this.renderInput.call(this)}
             </div>
         )
     }

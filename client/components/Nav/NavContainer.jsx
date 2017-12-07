@@ -21,6 +21,9 @@ const mapDispatchToProps = dispatch => {
 class NavContainer extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            user: {}
+        };
         this.onSave = this.onSave.bind(this);
     }
 
@@ -35,7 +38,21 @@ class NavContainer extends Component {
         }
     }
 
+    componentWillMount() {
+        fetch('/auth', {credentials: 'include'}).then(response => response.json())
+            .then(user => this.setState({ user }));
+    }
+
+    googleLogin() {
+        if (this.state.user.name) {
+            return <span>Logged in as <strong>{this.state.user.name.replace(/"/g, '')}</strong> | <a href='/logout'>Logout</a></span>;
+        } else {
+            return <a id="oAuth-container" href="/auth/google">Sign in with Google</a>;
+        } 
+    }
+
     render() {
+        console.log(this.state.user);
         return (
             <div id="nav-container" className="bg-white">
                 <div className="nav-inner">
@@ -49,7 +66,7 @@ class NavContainer extends Component {
                             <input type="submit"/>
                         </form>
                     </div>
-                    <a id="oAuth-container" href="/auth/google">Sign in with Google</a>
+                    {this.googleLogin()}
                 </div>
             </div>
         )
