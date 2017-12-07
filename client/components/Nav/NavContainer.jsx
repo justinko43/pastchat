@@ -66,7 +66,9 @@ class NavContainer extends Component {
                             <input type="submit"/>
                         </form>
                     </div>
-                    {this.googleLogin()}
+                    <div className="oauth-container">
+                        {this.googleLogin()}
+                    </div>
                 </div>
             </div>
         )
