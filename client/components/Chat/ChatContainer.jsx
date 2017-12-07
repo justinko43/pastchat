@@ -8,22 +8,12 @@ import * as actions from '../../actions/actions';
 
 const mapStateToProps = store => ({
     comments: store.chat.comments,
-<<<<<<< HEAD
-    url: store.chat.url,
-=======
     url: store.video.url,
     time: store.video.time,
->>>>>>> 12d8edb546e22d84fc03065b47964ce5eb697ed1
 });
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
-<<<<<<< HEAD
-        // postMessage: actions.postMessage,
-        // getMessage: actions.getMessage,
-        postComment: actions.postComment,
-=======
->>>>>>> 12d8edb546e22d84fc03065b47964ce5eb697ed1
         fetchComments: actions.fetchComments,
     }, dispatch)
 }
@@ -32,27 +22,6 @@ class ChatContainer extends Component {
     constructor(props) {
         super(props);
     }
-<<<<<<< HEAD
-    componentWillMount(){
-        this.props.fetchComments(`Q5Am4Xc1axA`);
-    }
-    onSubmit(event) {
-        event.preventDefault();
-        if (event.target.querySelector('input').value) {
-            this.props.postComment(event.target.querySelector('input').value);
-            event.target.reset();
-        }
-    }
-    render() {
-        return (
-            <div id='chat-container' className="bg-gr3">
-                <div id="message-container">
-                    <MessageBox comments={this.props.comments}/>
-                </div>
-                <div>
-                    <MessageInput postComment={this.onSubmit}/>
-                </div>
-=======
     componentDidMount(){
         this.props.fetchComments(this.props.url);
     }
@@ -87,7 +56,6 @@ class ChatContainer extends Component {
             <div id="chat-container" className="bg-white">
                 <MessageBox comments={this.props.comments.filter((obj) => obj.timestamp <= this.props.time)}/>
                 <MessageInput postComment={this.onSubmit.bind(this)}/>
->>>>>>> 12d8edb546e22d84fc03065b47964ce5eb697ed1
             </div> 
         )
     }
