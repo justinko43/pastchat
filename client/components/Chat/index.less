@@ -4,6 +4,7 @@
     position: relative;
     border-left: @chat-border;
     border-right: @chat-border;
+    height: calc(~"100vh - 55px");
 
     #message-box {
         overflow-y: scroll;
@@ -36,6 +37,7 @@
             
             input {
                 border: none;
+                border-bottom: @chat-border;
                 outline: none;
                 width: 80%;
                 height: 100%;
@@ -47,6 +49,7 @@
                 border-radius: 0;
                 border: none;
                 border-left: @chat-border;
+                border-bottom: @chat-border;
                 width: 20%;
                 height: 100%;
             }
