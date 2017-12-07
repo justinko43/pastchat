@@ -2,7 +2,6 @@ import * as types from '../constants/actionTypes';
 
 const initialState = {
     isFetching: false,
-    url: '123',
     comments: [123,123,123],
 }
 
@@ -11,7 +10,6 @@ const chatReducer = (state = initialState, action) => {
         case types.RECEIVE_COMMENTS:
             return Object.assign({}, state, {
                 isFetching: false,
-                url: action.link,
                 comments: action.comments,
                 lastUpdated: action.receivedAt,
             });

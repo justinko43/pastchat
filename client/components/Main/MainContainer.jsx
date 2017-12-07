@@ -39,11 +39,7 @@ class MainContainer extends Component {
     // }
 
     _onReady(played, loaded) {
-        // setInterval(console.log(event.target.getCurrentTime()), 1000);
-        // this.setState({timer: setInterval(console.log('hello'), 1000)})
-        // setInterval(console.log('hello'), 1000);
-        //    console.log(event.target.getCurrentTime()); 
-        console.log(played);
+
         this.props.setTime(played);
     }
     
