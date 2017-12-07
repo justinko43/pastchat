@@ -71,6 +71,23 @@ app.post('/comments', postController.postComment, (req, res) => {
   res.send('Post successful');
 });
 
+app.get('/auth', (req, res) => {
+  if (req.user) {
+    res.json(req.user);
+  } else {
+    res.json({});
+  }
+});
+
+app.get('/logout', (req, res) => {
+  if (req.user) {
+    req.logout();
+    res.redirect('/');
+  } else {
+    res.send('No logged in user');
+    res.redirect('/');
+  }
+});
 
 if (env === 'development') {
   const webpack = require('webpack');
