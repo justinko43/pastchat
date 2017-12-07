@@ -21,10 +21,20 @@ const mapDispatchToProps = dispatch => {
 class ChatContainer extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            user: {}
+        };
     }
+
     componentDidMount(){
         this.props.fetchComments(this.props.url);
     }
+
+    componentWillMount() {
+        fetch('/auth', { credentials: 'include' }).then(response => response.json())
+            .then(user => this.setState({ user }));
+    }
+
     onSubmit(value) {
         fetch(`/comments`, {
             method: 'POST',
@@ -55,7 +65,7 @@ class ChatContainer extends Component {
         return (
             <div id="chat-container" className="bg-white">
                 <MessageBox comments={this.props.comments.filter((obj) => obj.timestamp <= this.props.time)}/>
-                <MessageInput postComment={this.onSubmit.bind(this)}/>
+                <MessageInput user={this.state.user} postComment={this.onSubmit.bind(this)} />
             </div> 
         )
     }
