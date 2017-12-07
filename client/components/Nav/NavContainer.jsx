@@ -54,14 +54,18 @@ class NavContainer extends Component {
     render() {
         console.log(this.state.user);
         return (
-            <div id="nav-container">
-                <div>
-                    <form onSubmit={this.onSave}>
-                        <input type="text" component="input" placeholder="URL HERE"/>
-                        <input type="submit"/>
-                    </form>
-                </div>
-                <div>
+            <div id="nav-container" className="bg-white">
+                <div className="nav-inner">
+                    <div id="logo">
+                        <img src="https://image.flaticon.com/icons/svg/31/31989.svg" />
+                        <span className="h6 fw-600">TEAM DIAMOND</span>
+                    </div>
+                    <div className="form-container">
+                        <form onSubmit={this.onSave}>
+                            <input type="text" component="input" placeholder="Enter Video ID"/>
+                            <input type="submit"/>
+                        </form>
+                    </div>
                     {this.googleLogin()}
                 </div>
             </div>
