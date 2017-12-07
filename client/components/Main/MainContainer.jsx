@@ -3,9 +3,7 @@ import { bindActionCreators } from 'redux';
 import { render } from 'react-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
-import Video from './Video';
 import Summary from './Summary';
-// import YouTube from 'react-youtube';
 import ReactPlayer from 'react-player';
 
 const mapStateToProps = store => ({
@@ -34,23 +32,16 @@ class MainContainer extends Component {
         this.props.fetchVideo(`https://www.youtube.com/watch?v=${this.props.url}`);        
     }
 
-    // ref (player) {
-    //     this.player = player
-    // }
-
     _onReady(played, loaded) {
 
         this.props.setTime(played);
     }
     
     render() {    
-        console.log(this.props.url);
         return (
             <div id = 'main-container'>
                 <div id = 'video-container' className="margin-top-xl">
-                    {/* <YouTube id="hello" videoId={this.props.url} onProgress={this._onReady} playing /> */}
                     <ReactPlayer controls={true} url={`https://www.youtube.com/watch?v=${this.props.url}`} onProgress={this.props.setTime}/>
-                    <button onClick={this.getTime}> click</button>
                     <div id="summary-container" className="margin-xl">
                         <Summary title={this.props.title} description={this.props.description} />
                     </div>

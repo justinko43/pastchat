@@ -27,7 +27,6 @@ const receiveComments = (videoLink, comments) => ({
 })
 
 const fetchComments = (fetchRoute) => {
-    console.log('actioncreator', fetchRoute);
     return dispatch => {
         dispatch(getComments(fetchRoute))
         return fetch(`/comments/${fetchRoute}`)
