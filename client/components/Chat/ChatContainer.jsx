@@ -57,13 +57,8 @@ class ChatContainer extends Component {
         console.log(this.props.time);
         return (
             <div id="chat-container" className="bg-white">
-<<<<<<< HEAD
                 <MessageBox comments={this.props.comments.filter((obj) => obj.timestamp <= this.props.time)}/>
-                <MessageInput postComment={this.onSubmit}/>
-=======
-                <MessageBox comments={this.props.comments}/>
                 <MessageInput postComment={this.onSubmit.bind(this)}/>
->>>>>>> 94a8a9cff294c031cc5db3329386df7de80adbc0
             </div> 
         )
     }
