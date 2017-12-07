@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
 import Video from './Video';
 import Summary from './Summary';
-import YouTube from 'react-youtube';
-// import ReactPlayer from 'react-player';
+// import YouTube from 'react-youtube';
+import ReactPlayer from 'react-player';
 
 const mapStateToProps = store => ({
     url: store.video.url,
@@ -38,31 +38,32 @@ class MainContainer extends Component {
     //     this.player = player
     // }
 
-    getTime(event) {
-        // let ytplayer = (document.querySelector("iframe"));
-        console.log();
+    _onReady(played, loaded) {
+        // setInterval(console.log(event.target.getCurrentTime()), 1000);
+        // this.setState({timer: setInterval(console.log('hello'), 1000)})
+        // setInterval(console.log('hello'), 1000);
+        //    console.log(event.target.getCurrentTime()); 
+        console.log(played);
+        this.props.setTime(played);
     }
-
-    render() {
-        console.log()
+    
+    render() {    
+        console.log(this.props.url);
         return (
             <div id = 'main-container'>
                 <div id = 'video-container' className="margin-top-xl">
-                    {/* <Video url={this.props.url} rep={this.ref} /> */}
-                    <YouTube id="hello" videoId={this.props.url} onPlay={this._onReady} playing />
-                    {/* <ReactPlayer ref="player" url={`http://www.youtube.com/embed/${this.props.url}?enablejsapi=1&origin=http://example.com`} playing /> */}
+                    {/* <YouTube id="hello" videoId={this.props.url} onProgress={this._onReady} playing /> */}
+                    <ReactPlayer controls={true} url={`https://www.youtube.com/watch?v=${this.props.url}`} onProgress={this.props.setTime}/>
                     <button onClick={this.getTime}> click</button>
-                <div id="summary-container" className="margin-xl">
-                    <Summary title={this.props.title} description={this.props.description} />
-                </div>
+                    <div id="summary-container" className="margin-xl">
+                        <Summary title={this.props.title} description={this.props.description} />
+                    </div>
                 </div>
             </div>
         )
     }
 
-    _onReady(event) {
-        console.log(event.target.getCurrentTime());
-    }
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);

@@ -5,12 +5,13 @@ import moment from 'moment';
 
 class Comment extends Component {
     millisToMinutesAndSeconds(millis){
+        console.log(millis);
         var minutes = Math.floor(millis / 60000);
         var seconds = ((millis % 60000) / 1000).toFixed(0);
         return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
     }
     render() {
-        const timeStamp = moment(this.props.timestamp).format('h:mm a');
+        const timeStamp = this.millisToMinutesAndSeconds(this.props.timestamp);
         return (
             <div className="user-comment margin">
                 <div>

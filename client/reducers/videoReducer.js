@@ -26,7 +26,7 @@ const videoReducer = (state = initialState, action) => {
             });
         case types.SET_TIME:
             return Object.assign({}, state, {
-                time: action.time,
+                time: Math.floor(action.time.playedSeconds) * 1000,
             })
         default:
             return state;
