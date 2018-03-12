@@ -18,6 +18,8 @@ passport.serializeUser(function (user, done) {
 
 passport.deserializeUser(function (id, done) {
   postController.getUser(id, user => {
+    console.log('id: ', id);
+    console.log('user: ', user);
     done(null, user);
   });
 });
@@ -30,8 +32,10 @@ passport.use(new GoogleStrategy({
   function (accessToken, refreshToken, profile, cb) {
     postController.getUser(profile.id, user => {
       if (user) {
+        console.log('post:', user);
         cb(null, user);
       } else {
+        console.log('found: ', profile);
         postController.postUser(profile.id, profile.displayName, profile._json.image.url, user => {
           cb(null, user);
         });
@@ -61,7 +65,8 @@ app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/' }),
   function (req, res) {
     res.redirect('/');
-  });
+  }
+);
 
 app.get('/comments/:videoId', postController.getComments, (req, res) => {
   res.send(res.locals.comments);

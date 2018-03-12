@@ -29,9 +29,8 @@ class NavContainer extends Component {
 
     onSave(event) {
         event.preventDefault();
-        this.props.setLink(event.target.querySelector('input').value);
+        const url = event.target.querySelector('input').value;        
         if (event.target.querySelector('input').value) {
-            const url = event.target.querySelector('input').value;
             this.props.setLink(url);
             this.props.fetchComments(url);
             event.target.reset();

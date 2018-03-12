@@ -33,7 +33,6 @@ class MainContainer extends Component {
     }
 
     _onReady(played, loaded) {
-
         this.props.setTime(played);
     }
     
